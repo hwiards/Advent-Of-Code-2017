@@ -1,8 +1,11 @@
 *.class
 *.log
+*.java
 
 *.idea
 *DS_Store
 *project
 *target
 *build.sbt
+*.iml
+*out
