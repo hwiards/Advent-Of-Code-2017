@@ -1,6 +1,7 @@
 *.class
 *.log
 *.java
+*classpath
 
 *.idea
 *DS_Store
