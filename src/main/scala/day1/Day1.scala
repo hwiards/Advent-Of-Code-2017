@@ -17,7 +17,7 @@ object Day1 extends App {
   def calcDay1(str: String, off: Int): Int = {
     Range(0, len) //Erhalte die Zahlen von 0 bis n-1
       .filter(i => str(i) == str((i + off) % len)) // Fuer jede Zahl entscheide ob nächste Stelle gleich ist
-      .map(str(_) - '0') //char zu int. _ als Platzhalter.
+      .map(str(_).asDigit) //char zu int. _ als Platzhalter.
       .sum //Summe
   }
 
