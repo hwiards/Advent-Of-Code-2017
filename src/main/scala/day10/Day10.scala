@@ -2,10 +2,12 @@ package day10
 
 object Day10 {
 
+  val stdSuffix:Array[Int] = Array(17, 31, 73, 47, 23)
+
   def main(args: Array[String]): Unit = {
 
     val input = "88,88,211,106,141,1,78,254,2,111,77,255,90,0,54,205"
-    val stdSuffix:Array[Int] = Array(17, 31, 73, 47, 23)
+
 
     val lenghtInput = input.split(",").map(_.toInt)
     val charInput = input.toCharArray.map(_.toInt)
@@ -13,7 +15,11 @@ object Day10 {
 
     val initialState = State()
     println(f"Part 1: ${process(initialState,lenghtInput).productOfFirst(2)}")
-    println(f"Part 2: ${hex(xor(processTimes(initialState,totalChars, 64)))}")
+    println(f"Part 2: ${hex(xor(processTimes(initialState,charInput, 64)))}")
+  }
+
+  def hashBits(input:String): String ={
+    hex(xor(processTimes(State(),input.toCharArray.map(_.toInt), 64)))
   }
 
   //Aktueller Status
@@ -37,7 +43,10 @@ object Day10 {
   }
 
   //Durchläuft den Prozess repeat mal.
-  def processTimes(state:State, lenghts: Array[Int], repeat:Int) : State = {
+  def processTimes(state:State, input: Array[Int], repeat:Int) : State = {
+
+    val lenghts = input++stdSuffix
+
     //Geht bestimmt auch eleganter..
     var aktState = state
     for(round <- 0 until repeat){
@@ -53,7 +62,8 @@ object Day10 {
 
   //Erstellt einen Hex-String
   def hex(nums: Array[Int]):String ={
-    nums.map(num => num.toHexString).mkString
+    //reverse.padTo(2,'0').reverse da nicht alle Zahlen zweistellig
+    nums.map(num => num.toHexString.reverse.padTo(2,'0').reverse).mkString
   }
 
 }
