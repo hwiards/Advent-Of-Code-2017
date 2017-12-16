@@ -1,4 +1,4 @@
-package day6
+package day06
 /*
  * Created by Hilko Wiards on 6.12.2017.
  */

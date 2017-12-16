@@ -1,7 +1,7 @@
 /*
  * Created by Hilko Wiards on 4.12.2017.
  */
-package day4
+package day04
 
 import scala.io.Source
 
