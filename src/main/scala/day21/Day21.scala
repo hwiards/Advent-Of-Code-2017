@@ -113,7 +113,7 @@ case class State(picture: Array[Array[Char]], patternMap: HashMap[String, Array[
     return string
 
   }
-  
+
   def transpose(subArray: Array[Array[Char]]): Array[Array[Char]] = {
 
     val newBuff = subArray.map(_.toBuffer).toBuffer
